@@ -970,6 +970,41 @@ const BlogDetail = () => {
               <div dangerouslySetInnerHTML={{ __html: post.content }} />
             </motion.div>
 
+            {/* Practical summary section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="mb-10 sm:mb-12 rounded-xl sm:rounded-2xl border border-border/60 bg-card/60 p-5 sm:p-6 md:p-7 shadow-sm"
+            >
+              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mb-3 sm:mb-4 text-gold">
+                How to Put This Article Into Action
+              </h2>
+              <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-5 leading-relaxed">
+                Use this article as a practical playbook, not just theory. Start with one or two quick wins this
+                week, then schedule time to work through the remaining steps so you can see consistent results
+                instead of one-off spikes.
+              </p>
+              <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
+                <div className="space-y-2">
+                  <h3 className="text-sm sm:text-base font-semibold text-foreground">Quick wins for this week</h3>
+                  <ul className="list-disc list-inside text-xs sm:text-sm text-muted-foreground space-y-1.5">
+                    <li>Pick one page or campaign that will benefit most from improvements.</li>
+                    <li>Apply two changes from this article that you can implement in under 60 minutes.</li>
+                    <li>Set a simple before/after benchmark (traffic, leads, or calls booked).</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-sm sm:text-base font-semibold text-foreground">Next steps for the month</h3>
+                  <ul className="list-disc list-inside text-xs sm:text-sm text-muted-foreground space-y-1.5">
+                    <li>Choose 3–5 related pages or campaigns to optimise using this framework.</li>
+                    <li>Document what you changed so you can repeat the wins on future content.</li>
+                    <li>Review performance at the end of the month and decide what to scale next.</li>
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+
             {/* CTA at bottom */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
