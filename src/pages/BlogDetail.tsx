@@ -616,18 +616,18 @@ const BlogDetail = () => {
   const trafficChartConfig = {
     clicks: {
       label: "Clicks",
-      color: "#38bdf8", // light sky
+      color: "#38bdf8", // blue
     },
     impressions: {
       label: "Impressions",
-      color: "#facc15", // light yellow
+      color: "#facc15", // gold
     },
   };
 
   const engagementChartConfig = {
     value: {
       label: "Sessions",
-      color: "#22c55e", // light green
+      color: "#38bdf8", // blue for secondary charts by default
     },
   };
   const chartSettingsByPost: Record<
@@ -828,7 +828,7 @@ const BlogDetail = () => {
                       <Line
                         type="monotone"
                         dataKey="clicks"
-                        stroke="#38bdf8"
+                        stroke={trafficChartConfig.clicks.color}
                         strokeWidth={2}
                         dot={false}
                         activeDot={{ r: 4 }}
@@ -839,7 +839,7 @@ const BlogDetail = () => {
                       <Line
                         type="monotone"
                         dataKey="impressions"
-                        stroke="#facc15"
+                        stroke={trafficChartConfig.impressions.color}
                         strokeWidth={2}
                         dot={false}
                         activeDot={{ r: 4 }}
@@ -860,14 +860,14 @@ const BlogDetail = () => {
                       <ChartLegend content={<ChartLegendContent />} />
                       <Bar
                         dataKey="clicks"
-                        fill="#38bdf8"
+                        fill={trafficChartConfig.clicks.color}
                         radius={[6, 6, 0, 0]}
                         isAnimationActive
                         animationDuration={800}
                       />
                       <Bar
                         dataKey="impressions"
-                        fill="#facc15"
+                        fill={trafficChartConfig.impressions.color}
                         radius={[6, 6, 0, 0]}
                         isAnimationActive
                         animationDuration={800}
@@ -907,7 +907,7 @@ const BlogDetail = () => {
                         cursor={{ fill: "hsl(var(--muted))" }}
                         content={<ChartTooltipContent labelKey="label" />}
                       />
-                      <Bar dataKey="value" fill="#22c55e" radius={[6, 6, 0, 0]} />
+                      <Bar dataKey="value" fill={engagementChartConfig.value.color} radius={[6, 6, 0, 0]} />
                     </BarChart>
                   </ChartContainer>
                 )}
@@ -942,10 +942,10 @@ const BlogDetail = () => {
                       >
                         {engagementData.map((entry, index) => {
                           const colors = [
-                            "#38bdf8", // sky
-                            "#f97316", // orange
-                            "#22c55e", // green
-                            "#a855f7", // purple
+                            "#38bdf8", // blue
+                            "#facc15", // gold
+                            "#60a5fa", // lighter blue
+                            "#fbbf24", // lighter gold
                           ];
                           return <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />;
                         })}
