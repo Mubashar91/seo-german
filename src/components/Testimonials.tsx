@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-const testimonials = [
+const testimonials_en = [
   {
     name: "Emma Rodriguez",
     company: "Luxe Beauty Co.",
@@ -27,8 +27,33 @@ const testimonials = [
   }
 ];
 
+const testimonials_de = [
+  {
+    name: "Emma Rodriguez",
+    company: "Luxe Beauty Co.",
+    role: "Gründerin",
+    content: "Unser organischer Traffic ist in 8 Monaten um 400% gestiegen. Von Seite 3 auf Platz #1 für unsere wichtigsten Keywords. Der SEO‑ROI ist beeindruckend.",
+    rating: 5
+  },
+  {
+    name: "David Chen",
+    company: "Peak Performance Coaching",
+    role: "CEO",
+    content: "Local SEO war ein Game‑Changer. Wir dominieren jetzt die lokale Suche und erhalten 15+ qualifizierte Leads pro Woche über Google. Beste Investition.",
+    rating: 5
+  },
+  {
+    name: "Sophie Martens",
+    company: "Urban Eats",
+    role: "Marketing‑Leitung",
+    content: "Das technische SEO‑Audit hat Probleme behoben, die wir gar nicht kannten. Die Seitengeschwindigkeit stieg um 85% und wir ranken für 300+ Keywords.",
+    rating: 5
+  }
+];
+
 export const Testimonials = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const items = i18n.language && i18n.language.startsWith("de") ? testimonials_de : testimonials_en;
   return (
     <motion.section 
       id="testimonials"
@@ -53,7 +78,7 @@ export const Testimonials = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 max-w-6xl mx-auto mb-8 sm:mb-10 md:mb-12">
-          {testimonials.map((testimonial, index) => (
+          {items.map((testimonial, index) => (
             <motion.div 
               key={index}
               className="bg-card/50 backdrop-blur-sm border border-border rounded-lg sm:rounded-xl p-5 sm:p-6 md:p-8 hover:bg-card transition-all duration-300"
