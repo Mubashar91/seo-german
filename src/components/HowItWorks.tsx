@@ -4,27 +4,27 @@ import { Search, FileText, Settings, TrendingUp } from "lucide-react";
 const steps = [
   {
     icon: Search,
-    step: "Step 1",
-    title: "SEO Audit & Strategy",
-    description: "Comprehensive website analysis, keyword research, and competitor analysis. We create a custom SEO roadmap for your business."
+    step: "Schritt 1",
+    title: "SEO‑Audit & Strategie",
+    description: "Umfassende Website‑Analyse, Keyword‑Recherche und Wettbewerbsanalyse. Wir erstellen eine individuelle SEO‑Roadmap für Ihr Unternehmen."
   },
   {
     icon: FileText,
-    step: "Step 2",
-    title: "Content & On-Page SEO",
-    description: "Optimize existing content and create new SEO-focused content. Meta tags, headers, and internal linking strategy."
+    step: "Schritt 2",
+    title: "Content & On‑Page‑SEO",
+    description: "Bestehende Inhalte optimieren und neue SEO‑fokussierte Inhalte erstellen. Meta‑Tags, Überschriften und interne Verlinkungsstrategie."
   },
   {
     icon: Settings,
-    step: "Step 3",
-    title: "Technical Implementation",
-    description: "Site speed optimization, mobile responsiveness, schema markup, and technical SEO fixes for better crawlability."
+    step: "Schritt 3",
+    title: "Technische Umsetzung",
+    description: "Pagespeed‑Optimierung, mobile Responsivität, Schema‑Markup und technische SEO‑Fixes für bessere Crawlability."
   },
   {
     icon: TrendingUp,
-    step: "Step 4",
-    title: "Monitor & Scale",
-    description: "Track rankings, analyze traffic growth, and continuously optimize. Monthly reports and strategy adjustments."
+    step: "Schritt 4",
+    title: "Messen & Skalieren",
+    description: "Rankings verfolgen, Traffic‑Wachstum analysieren und kontinuierlich optimieren. Monatliche Reports und Strategie‑Anpassungen."
   }
 ];
 
@@ -48,13 +48,13 @@ export const HowItWorks = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <span className="inline-block px-4 py-2 bg-foreground text-gold text-sm font-semibold rounded-full mb-4">
-            SEO in 4 Steps
+            SEO in 4 Schritten
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
-            How It <span className="text-gold">Works</span>
+            So <span className="text-gold">funktioniert's</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            From audit to ranking improvements in 30-90 days. Proven process, measurable results.
+            Von der Analyse bis zu Ranking‑Verbesserungen in 30–90 Tagen. Bewährter Prozess, messbare Ergebnisse.
           </p>
         </motion.div>
 
@@ -121,7 +121,7 @@ export const HowItWorks = () => {
             transition={{ duration: prefersReducedMotion ? 0.3 : 0.5 }}
           >
             <a href="#contact" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-foreground text-background hover:bg-gold hover:text-foreground transition-colors duration-300 font-semibold ring-1 ring-foreground/20">
-              Book SEO audit
+              SEO‑Audit buchen
             </a>
           </motion.div>
         </div>

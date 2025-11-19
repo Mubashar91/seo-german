@@ -2,10 +2,12 @@ import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Calendar, Sparkles, TrendingUp, Search, BarChart3, Award } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export const Hero = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const { t } = useTranslation();
   
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -64,16 +66,16 @@ export const Hero = () => {
                 }}
                 className="bg-gradient-to-r from-gold via-brand-blue to-gold bg-[length:200%_100%] bg-clip-text text-transparent"
               >
-                Trusted by 500+ Businesses Worldwide
+                {t("hero.badge")}
               </motion.span>
             </motion.div>
             
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-5 md:mb-6 leading-[1.15] sm:leading-[1.12] md:leading-[1.1]">
-              Dominate Search Results & <span className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">Drive Organic Traffic</span>
+              {t("hero.title_part1")} {t("hero.title_connector")} <span className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">{t("hero.title_part2")}</span>
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-3 sm:mb-4 md:mb-5 leading-relaxed max-w-xl">
-              Complete SEO solutions: keyword research, on-page optimization, content strategy, and technical SEO — all designed to boost your rankings.
+              {t("hero.description")}
             </p>
             
             <motion.div
@@ -87,7 +89,7 @@ export const Hero = () => {
                 size="lg"
                 onClick={() => window.location.href = '/book-meeting'}
                 className="group relative w-full sm:w-auto text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 md:py-7 h-auto font-bold shadow-gold-lg transform hover:scale-[1.06] hover:-translate-y-2 transition-all duration-400 hover:brightness-110 cursor-pointer overflow-hidden rounded-xl border-2 border-transparent hover:border-yellow-400/30"
-                aria-label="Book a free 15-minute SEO strategy call"
+                aria-label={t("hero.cta_aria")}
               >
                 {/* Subtle shimmer effect */}
                 <motion.div
@@ -110,8 +112,8 @@ export const Hero = () => {
                 
                 <span className="relative z-10 flex items-center justify-center gap-2.5">
                   <Calendar className="w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" aria-hidden="true" />
-                  <span className="hidden sm:inline font-semibold group-hover:tracking-wide transition-all duration-300">Book Free SEO Audit (15 min)</span>
-                  <span className="sm:hidden font-semibold group-hover:tracking-wide transition-all duration-300">Book SEO Audit</span>
+                  <span className="hidden sm:inline font-semibold group-hover:tracking-wide transition-all duration-300">{t("hero.cta_full")}</span>
+                  <span className="sm:hidden font-semibold group-hover:tracking-wide transition-all duration-300">{t("hero.cta_short")}</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-2 group-hover:scale-110 transition-all duration-300" aria-hidden="true" />
                 </span>
               </Button>
@@ -136,7 +138,7 @@ export const Hero = () => {
                 >
                   <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-gold" aria-hidden="true" />
                 </motion.div>
-                <span className="font-medium">Free comprehensive SEO audit included</span>
+                <span className="font-medium">{t("hero.urgency")}</span>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -168,7 +170,7 @@ export const Hero = () => {
                 className="bg-gradient-to-br from-[hsl(var(--gold))] via-[hsl(var(--brand-blue))] to-[hsl(var(--gold))] text-background px-3 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-lg border-2 border-background flex items-center gap-1.5 sm:gap-2"
               >
                 <Award className="w-3 h-3 sm:w-4 sm:h-4" aria-hidden="true" />
-                <span className="text-[10px] sm:text-xs font-bold whitespace-nowrap">Top Rated</span>
+                <span className="text-[10px] sm:text-xs font-bold whitespace-nowrap">{t("hero.badgeTopRated")}</span>
               </motion.div>
             </motion.div>
             
@@ -183,7 +185,7 @@ export const Hero = () => {
               {/* Layer 1: image */}
               <motion.img
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
-                alt="SEO analytics dashboard with search rankings and traffic metrics"
+                alt={t("hero.title_part1")}
                 className="w-full h-auto object-cover"
                 style={{ transform: "translateZ(20px)" }}
               />
@@ -230,7 +232,7 @@ export const Hero = () => {
                     >
                       <Search className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-brand/80 group-hover/stat:text-brand transition-colors" aria-hidden="true" />
                       <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">1M+</div>
-                      <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-medium">Keywords Ranked</div>
+                      <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-medium">{t("hero.stat_keywords")}</div>
                     </motion.div>
                   </motion.div>
                   
@@ -247,7 +249,7 @@ export const Hero = () => {
                     >
                       <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-brand/80 group-hover/stat:text-brand transition-colors" aria-hidden="true" />
                       <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">350%</div>
-                      <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-medium">Avg Traffic Boost</div>
+                      <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-medium">{t("hero.stat_traffic")}</div>
                     </motion.div>
                   </motion.div>
                   
@@ -264,13 +266,13 @@ export const Hero = () => {
                     >
                       <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-brand/80 group-hover/stat:text-brand transition-colors" aria-hidden="true" />
                       <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">#1</div>
-                      <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-medium">Page Rankings</div>
+                      <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-medium">{t("hero.stat_rankings")}</div>
                     </motion.div>
                   </motion.div>
                 </div>
               </motion.div>
             </motion.div>
-            
+
             {/* Animated decorative elements */}
             <motion.div 
               className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-brand/20 rounded-full blur-3xl"

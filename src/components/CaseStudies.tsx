@@ -1,154 +1,14 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Users, Clock, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { caseStudies } from "@/components/data/caseStudies";
 
-interface CaseStudy {
-  id: number;
-  title: string;
-  company: string;
-  industry: string;
-  challenge: string;
-  solution: string;
-  results: {
-    metric: string;
-    value: string;
-    description: string;
-  }[];
-  testimonial: string;
-  testimonialAuthor: string;
-  testimonialRole: string;
-  image: string;
-  stats: {
-    mainResult: string;
-    timeframe: string;
-    seoFocus: string;
-  };
-}
-
-const caseStudies: CaseStudy[] = [
-  {
-    id: 1,
-    title: "E-commerce Store Achieves 400% Organic Traffic Growth with Technical SEO Overhaul",
-    company: "TechMart Online",
-    industry: "E-commerce",
-    challenge: "Poor site performance, technical issues, and low search visibility. Organic traffic was declining while competitors dominated search results.",
-    solution: "Comprehensive technical SEO audit, site speed optimization, mobile responsiveness improvements, schema markup implementation, and strategic keyword targeting.",
-    results: [
-      {
-        metric: "Organic Traffic",
-        value: "+400%",
-        description: "Massive increase in organic sessions within 6 months"
-      },
-      {
-        metric: "Keyword Rankings",
-        value: "250+",
-        description: "Keywords ranking in top 10 positions"
-      },
-      {
-        metric: "Revenue",
-        value: "+280%",
-        description: "Organic revenue growth from improved rankings"
-      },
-      {
-        metric: "Page Speed",
-        value: "+85%",
-        description: "Improvement in Core Web Vitals scores"
-      }
-    ],
-    testimonial: "Our organic traffic exploded after the technical SEO improvements. We're now ranking for keywords we never thought possible.",
-    testimonialAuthor: "Stefan Richter",
-    testimonialRole: "CEO, TechMart Online",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
-    stats: {
-      mainResult: "+400% Traffic",
-      timeframe: "6 months",
-      seoFocus: "Technical SEO"
-    }
-  },
-  {
-    id: 2,
-    title: "Local Business Dominates Local Search with Strategic Local SEO Campaign",
-    company: "Digital Dynamics",
-    industry: "Professional Services",
-    challenge: "Invisible in local search results, poor Google My Business presence, and losing customers to competitors with better online visibility.",
-    solution: "Local SEO optimization, Google My Business enhancement, local citation building, review management, and location-based content strategy.",
-    results: [
-      {
-        metric: "Local Rankings",
-        value: "#1 Position",
-        description: "Top ranking for primary local keywords"
-      },
-      {
-        metric: "GMB Views",
-        value: "+320%",
-        description: "Increase in Google My Business profile views"
-      },
-      {
-        metric: "Phone Calls",
-        value: "+180%",
-        description: "More direct calls from search results"
-      },
-      {
-        metric: "Reviews",
-        value: "+150%",
-        description: "Increase in positive Google reviews"
-      }
-    ],
-    testimonial: "We now dominate local search. Our phone rings constantly with qualified leads from Google searches.",
-    testimonialAuthor: "Julia Becker",
-    testimonialRole: "Founder, Digital Dynamics",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop",
-    stats: {
-      mainResult: "#1 Local Ranking",
-      timeframe: "4 months",
-      seoFocus: "Local SEO"
-    }
-  },
-  {
-    id: 3,
-    title: "SaaS Company Reduces Customer Acquisition Cost with Content-Driven SEO",
-    company: "CloudFlow Solutions",
-    industry: "SaaS",
-    challenge: "High customer acquisition costs from paid ads, limited organic visibility, and difficulty reaching target audience through search.",
-    solution: "Comprehensive content strategy, keyword-optimized blog posts, technical documentation SEO, and strategic internal linking to drive organic leads.",
-    results: [
-      {
-        metric: "Organic Leads",
-        value: "+450%",
-        description: "Increase in qualified leads from organic search"
-      },
-      {
-        metric: "CAC Reduction",
-        value: "-60%",
-        description: "Lower customer acquisition cost overall"
-      },
-      {
-        metric: "Content Traffic",
-        value: "+380%",
-        description: "Blog and resource page traffic growth"
-      },
-      {
-        metric: "Conversion Rate",
-        value: "+25%",
-        description: "Better qualified organic traffic converts more"
-      }
-    ],
-    testimonial: "SEO transformed our lead generation. We're getting high-quality prospects without the high cost of paid advertising.",
-    testimonialAuthor: "Marco Schneider",
-    testimonialRole: "CTO, CloudFlow Solutions",
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=500&fit=crop",
-    stats: {
-      mainResult: "-60% CAC",
-      timeframe: "8 months",
-      seoFocus: "Content SEO"
-    }
-  }
-];
-
-export { caseStudies };
+ 
 
 export const CaseStudies = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <motion.section
@@ -169,13 +29,13 @@ export const CaseStudies = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gold/10 text-gold text-xs sm:text-sm font-semibold rounded-full mb-3 sm:mb-4">
-            Success Stories
+            {t("caseStudies.badge")}
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-foreground">
-            SEO Success Stories
+            {t("caseStudies.title")}
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            See how businesses achieved top rankings, increased organic traffic, and boosted revenue with our proven SEO strategies.
+            {t("caseStudies.subtitle")}
           </p>
         </motion.div>
 
@@ -216,15 +76,15 @@ export const CaseStudies = () => {
                 <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4 sm:mb-5 pb-4 sm:pb-5 border-b border-border">
                   <div className="text-center">
                     <div className="text-gold font-bold text-sm sm:text-base lg:text-lg">{study.stats.mainResult}</div>
-                    <div className="text-[10px] sm:text-xs text-muted-foreground">Result</div>
+                    <div className="text-[10px] sm:text-xs text-muted-foreground">{t("caseStudies.statResult")}</div>
                   </div>
                   <div className="text-center">
                     <div className="text-gold font-bold text-sm sm:text-base lg:text-lg">{study.stats.seoFocus}</div>
-                    <div className="text-[10px] sm:text-xs text-muted-foreground">SEO Focus</div>
+                    <div className="text-[10px] sm:text-xs text-muted-foreground">{t("caseStudies.statFocus")}</div>
                   </div>
                   <div className="text-center">
                     <div className="text-gold font-bold text-sm sm:text-base lg:text-lg">{study.stats.timeframe}</div>
-                    <div className="text-[10px] sm:text-xs text-muted-foreground">Timeframe</div>
+                    <div className="text-[10px] sm:text-xs text-muted-foreground">{t("caseStudies.statTimeframe")}</div>
                   </div>
                 </div>
 
@@ -240,8 +100,8 @@ export const CaseStudies = () => {
 
                 {/* Read more */}
                 <div className="flex items-center gap-1 sm:gap-2 text-gold font-semibold text-xs sm:text-sm group-hover:gap-2 sm:group-hover:gap-3 transition-all">
-                  <span className="hidden sm:inline">View Full Case Study</span>
-                  <span className="sm:hidden">View Study</span>
+                  <span className="hidden sm:inline">{t("caseStudies.readFull")}</span>
+                  <span className="sm:hidden">{t("caseStudies.readShort")}</span>
                   <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                 </div>
               </div>
@@ -258,11 +118,11 @@ export const CaseStudies = () => {
           className="mt-8 sm:mt-12 lg:mt-16 text-center"
         >
           <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-4 sm:mb-6">
-            Ready to write your own success story?
+            {t("caseStudies.bottomCtaText")}
           </p>
           <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gold text-foreground font-semibold text-sm sm:text-base rounded-lg sm:rounded-xl hover:bg-gold/90 transition-all duration-300 hover:scale-105 shadow-lg">
-            <span className="hidden sm:inline">Book Your Free Consultation →</span>
-            <span className="sm:hidden">Get Started →</span>
+            <span className="hidden sm:inline">{t("caseStudies.bottomCtaPrimary")}</span>
+            <span className="sm:hidden">{t("caseStudies.bottomCtaSecondary")}</span>
           </button>
         </motion.div>
       </div>

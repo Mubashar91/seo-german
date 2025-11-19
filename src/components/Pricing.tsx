@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Check, Star } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 // Constants
 const MAX_VA_COUNT = 10;
@@ -19,7 +20,61 @@ interface PricingPlan {
   badge?: string;
 }
 
-const plans: PricingPlan[] = [
+// German dataset
+const plans_de: PricingPlan[] = [
+  {
+    name: "Essential",
+    hours: "Basis‑SEO",
+    price: 997,
+    setupFee: 0,
+    features: [
+      "SEO‑Audit & Strategie",
+      "Keyword‑Recherche (50 Keywords)",
+      "On‑Page‑Optimierung (10 Seiten)",
+      "Technische SEO‑Fixes",
+      "Monatliches Reporting",
+      "E‑Mail‑Support"
+    ],
+    highlighted: false
+  },
+  {
+    name: "Professional",
+    hours: "Komplettes SEO",
+    price: 1997,
+    setupFee: 0,
+    badge: "Am beliebtesten",
+    features: [
+      "Alles aus Essential",
+      "Content‑Erstellung (4 Blogposts/Monat)",
+      "Linkbuilding‑Kampagne",
+      "Local‑SEO‑Optimierung",
+      "Wettbewerbsanalyse",
+      "Zweiwöchentliche Strategie‑Calls",
+      "Priorisierter Support"
+    ],
+    highlighted: true
+  },
+  {
+    name: "Enterprise",
+    hours: "Full‑Service‑SEO",
+    price: 3997,
+    setupFee: 0,
+    badge: "Bestes Preis‑Leistungs‑Verhältnis",
+    features: [
+      "Alles aus Professional",
+      "Erweitertes technisches SEO",
+      "Content‑Marketing‑Strategie",
+      "E‑Commerce‑SEO (falls zutreffend)",
+      "Wöchentliche Strategie‑Calls",
+      "Dedizierter Account‑Manager",
+      "Individuelles Reporting‑Dashboard"
+    ],
+    highlighted: false
+  }
+];
+
+// English dataset
+const plans_en: PricingPlan[] = [
   {
     name: "Essential",
     hours: "Basic SEO",
@@ -73,6 +128,9 @@ const plans: PricingPlan[] = [
 
 export const Pricing = () => {
   const [vaCount, setVaCount] = useState(1);
+  const { t, i18n } = useTranslation();
+  const plans: PricingPlan[] = i18n.language && i18n.language.startsWith("de") ? plans_de : plans_en;
+  const seoPackageLabel = i18n.language && i18n.language.startsWith("de") ? "SEO‑Paket" : "SEO Package";
   
   const calculateDiscount = (count: number) => {
     return count >= BULK_DISCOUNT_THRESHOLD ? BULK_DISCOUNT_RATE : 0;
@@ -110,13 +168,11 @@ export const Pricing = () => {
             className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-br from-[hsl(var(--gold))] via-[hsl(var(--brand-blue))] to-[hsl(var(--gold))] text-foreground text-xs sm:text-sm font-bold rounded-full mb-3 sm:mb-4 shadow-md"
             whileHover={{ scale: 1.05 }}
           >
-            Transparent Pricing
+            {t("pricing.badge")}
           </motion.span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 text-foreground leading-tight">
-            Simple, <span className="text-gold">Results-Driven</span> Pricing
-          </h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 text-foreground leading-tight" dangerouslySetInnerHTML={{ __html: t("pricing.title_html") }} />
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            Choose the SEO package that fits your business goals. Scale up anytime. No hidden fees.
+            {t("pricing.subtitle")}
           </p>
         </motion.div>
 
@@ -197,7 +253,7 @@ export const Pricing = () => {
                     <span className={`px-2 py-0.5 text-xs rounded-full ${
                       plan.highlighted ? 'bg-foreground/20 text-foreground' : 'bg-brand/10 text-brand'
                     }`}>
-                      SEO Package
+                      {seoPackageLabel}
                     </span>
                   </div>
                 </div>
@@ -218,21 +274,21 @@ export const Pricing = () => {
                     <span className={`text-base ml-1 ${
                       plan.highlighted ? 'text-foreground/60' : 'text-muted-foreground'
                     }`}>
-                      /mo
+                      {t("pricing.perMonth")}
                     </span>
                   </div>
                   {plan.setupFee > 0 ? (
                     <p className={`text-xs mt-2 ${
                       plan.highlighted ? 'text-foreground/60' : 'text-muted-foreground'
                     }`}>
-                      + €{plan.setupFee} setup fee
+                      {t("pricing.setupFee", { fee: plan.setupFee })}
                     </p>
                   ) : (
                     <p className={`text-xs mt-2 font-semibold flex items-center gap-1 ${
                       plan.highlighted ? 'text-foreground' : 'text-brand'
                     }`}>
                       <Check className="w-3.5 h-3.5" />
-                      No setup fee
+                      {t("pricing.noSetupFee")}
                     </p>
                   )}
                 </div>
@@ -273,11 +329,13 @@ export const Pricing = () => {
                       ? 'bg-foreground text-brand hover:bg-foreground/95 shadow-lg hover:shadow-xl hover:scale-105' 
                       : 'border-2 border-brand text-brand hover:bg-brand hover:text-foreground hover:scale-105'
                   }`}
-                  aria-label={`Get started with ${plan.name} plan - ${plan.hours} per week at €${Math.round(plan.price * (1 - discount) * vaCount)} per month`}
+                  aria-label={i18n.language && i18n.language.startsWith('de')
+                    ? `Mit dem ${plan.name}-Paket starten – ${plan.hours} pro Woche für €${Math.round(plan.price * (1 - discount) * vaCount)} pro Monat`
+                    : `Get started with ${plan.name} plan – ${plan.hours} per week at €${Math.round(plan.price * (1 - discount) * vaCount)} per month`}
                 >
                   {/* Button shine effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-700" aria-hidden="true" />
-                  <span className="relative">Get Started</span>
+                  <span className="relative">{t("pricing.cta")}</span>
                 </Button>
               </div>
             </motion.div>
@@ -291,7 +349,9 @@ export const Pricing = () => {
     viewport={{ once: true }}
     transition={{ duration: 0.6, delay: 0.5 }}
   >
-    All plans are billed monthly with no long-term contracts. Upgrade or downgrade anytime. Results typically seen within 3-6 months.
+    {i18n.language && i18n.language.startsWith('de')
+      ? 'Alle Pakete werden monatlich ohne langfristige Bindung abgerechnet. Upgrade oder Downgrade jederzeit möglich. Ergebnisse typischerweise innerhalb von 3–6 Monaten.'
+      : 'All plans are billed monthly with no long-term contracts. Upgrade or downgrade anytime. Results typically seen within 3–6 months.'}
         </motion.p>
       </div>
     </motion.section>

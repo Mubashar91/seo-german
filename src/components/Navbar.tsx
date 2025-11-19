@@ -3,11 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/ThemeProvider";
 import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, setTheme } = useTheme();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,12 +45,12 @@ export const Navbar = () => {
   };
 
   const navItems = [
-    { name: "Services", href: "/#services" },
-    { name: "How It Works", href: "/#how-it-works" },
-    { name: "Pricing", href: "/#pricing" },
-    { name: "Testimonials", href: "/#testimonials" },
-    { name: "FAQ", href: "/#faq" },
-    { name: "Contact Us", href: "/contact" },
+    { label: t("nav.services"), href: "/#services" },
+    { label: t("nav.howItWorks"), href: "/#how-it-works" },
+    { label: t("nav.pricing"), href: "/#pricing" },
+    { label: t("nav.testimonials"), href: "/#testimonials" },
+    { label: t("nav.faq"), href: "/#faq" },
+    { label: t("nav.contactUs"), href: "/contact" },
   ];
 
   return (
@@ -94,14 +96,14 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center space-x-2 md:space-x-3 lg:space-x-6 xl:space-x-8">
             {navItems.map((item, index) => (
               <motion.a
-                key={item.name}
+                key={item.href}
                 href={item.href}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                 className="relative text-foreground hover:text-gold transition-all duration-300 font-medium text-sm md:text-sm lg:text-base px-2 md:px-2.5 lg:px-3 py-2 rounded-lg hover:bg-gold/10 group whitespace-nowrap"
               >
-                {item.name}
+                {item.label}
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gold group-hover:w-3/4 transition-all duration-300" />
               </motion.a>
             ))}
@@ -109,6 +111,26 @@ export const Navbar = () => {
 
           {/* Desktop Actions - Show on medium screens and up */}
           <div className="hidden md:flex items-center space-x-2 md:space-x-2.5 lg:space-x-3 xl:space-x-4">
+            <div className="flex items-center gap-1">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => i18n.changeLanguage("en")}
+                className={`px-2 py-1 ${i18n.language.startsWith("en") ? "text-gold" : ""}`}
+                aria-label="Switch to English"
+              >
+                EN
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => i18n.changeLanguage("de")}
+                className={`px-2 py-1 ${i18n.language.startsWith("de") ? "text-gold" : ""}`}
+                aria-label="Switch to German"
+              >
+                DE
+              </Button>
+            </div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -137,7 +159,7 @@ export const Navbar = () => {
                 onClick={() => window.location.href = '/book-meeting'}
                 className="text-sm md:text-sm lg:text-base px-4 md:px-4 lg:px-7 py-2 md:py-2 lg:py-2.5 cursor-pointer hover:shadow-lg hover:shadow-gold/30 transition-all duration-300 hover:scale-105 font-semibold whitespace-nowrap"
               >
-                Get Started
+                {t("nav.getStarted")}
               </Button>
             </motion.div>
           </div>
@@ -195,7 +217,7 @@ export const Navbar = () => {
               <div className="py-3 space-y-1">
                 {navItems.map((item, index) => (
                   <motion.a
-                    key={item.name}
+                    key={item.href}
                     href={item.href}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -203,9 +225,29 @@ export const Navbar = () => {
                     className="block text-foreground hover:text-gold hover:bg-gold/10 active:bg-gold/20 transition-all duration-200 font-medium py-3 px-4 rounded-lg mx-2"
                     onClick={() => setIsOpen(false)}
                   >
-                    {item.name}
+                    {item.label}
                   </motion.a>
                 ))}
+                <div className="flex items-center gap-2 px-3 pt-2">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => i18n.changeLanguage("en")}
+                    className={`px-2 py-1 ${i18n.language.startsWith("en") ? "text-gold" : ""}`}
+                    aria-label="Switch to English"
+                  >
+                    EN
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => i18n.changeLanguage("de")}
+                    className={`px-2 py-1 ${i18n.language.startsWith("de") ? "text-gold" : ""}`}
+                    aria-label="Switch to German"
+                  >
+                    DE
+                  </Button>
+                </div>
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -217,7 +259,7 @@ export const Navbar = () => {
                     onClick={() => window.location.href = '/book-meeting'}
                     className="w-full text-base py-3 cursor-pointer font-semibold hover:shadow-lg transition-all duration-300"
                   >
-                    Get Started
+                    {t("nav.getStarted")}
                   </Button>
                 </motion.div>
               </div>

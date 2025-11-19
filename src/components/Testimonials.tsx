@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const testimonials = [
   {
@@ -27,6 +28,7 @@ const testimonials = [
 ];
 
 export const Testimonials = () => {
+  const { t } = useTranslation();
   return (
     <motion.section 
       id="testimonials"
@@ -44,11 +46,9 @@ export const Testimonials = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 px-2">
-            Trusted by <span className="text-gold">Brands That Rank</span>
-          </h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 px-2" dangerouslySetInnerHTML={{ __html: t("testimonials.title_html") }} />
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl px-2">
-            Real SEO results from real businesses who partnered with us.
+            {t("testimonials.subtitle")}
           </p>
         </motion.div>
 
@@ -90,16 +90,14 @@ export const Testimonials = () => {
         >
           <div className="text-left">
             <span className="inline-block px-3 py-1 bg-gold/10 text-gold text-xs sm:text-sm font-semibold rounded-full mb-3 sm:mb-4">
-              Success Story
+              {t("testimonials.badge")}
             </span>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
-              Case Study: <span className="text-gold">450% Organic Traffic Growth in 6 Months</span>
-            </h3>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: t("testimonials.case_title") }} />
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-5 sm:mb-6 leading-relaxed max-w-3xl">
-              See how an e-commerce store went from 2K to 11K monthly organic visitors and turned SEO into their #1 revenue channel.
+              {t("testimonials.case_desc")}
             </p>
             <Button variant="gold" size="lg" className="w-full sm:w-auto text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4">
-              View Full Case Study
+              {t("testimonials.case_cta")}
             </Button>
           </div>
         </motion.div>

@@ -1,7 +1,9 @@
 import { Navbar } from "@/components/Navbar";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -13,10 +15,10 @@ const Contact = () => {
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Contact Us
+            {t("contact.title")}
           </h1>
           <p className="text-sm sm:text-base text-muted-foreground mb-8 max-w-2xl">
-            Tell us about your business and the kind of virtual assistant support you need. Well get back to you with a custom plan.
+            {t("contact.blurb")}
           </p>
 
           <div className="bg-card border border-border/60 rounded-2xl p-6 sm:p-8 shadow-sm">
@@ -30,22 +32,22 @@ const Contact = () => {
               <input type="hidden" name="subject" value="New contact request - Don Va" />
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-1.5">
-                  <label className="block text-sm font-medium text-foreground">Full Name</label>
+                  <label className="block text-sm font-medium text-foreground">{t("contact.name")}</label>
                   <input
                     type="text"
                     name="name"
                     className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gold/60"
-                    placeholder="John Doe"
+                    placeholder={t("contact.name_ph")}
                     required
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="block text-sm font-medium text-foreground">Email</label>
+                  <label className="block text-sm font-medium text-foreground">{t("contact.email")}</label>
                   <input
                     type="email"
                     name="email"
                     className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gold/60"
-                    placeholder="you@example.com"
+                    placeholder={t("contact.email_ph")}
                     required
                   />
                 </div>
@@ -53,39 +55,42 @@ const Contact = () => {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-1.5">
-                  <label className="block text-sm font-medium text-foreground">How many VAs do you need?</label>
+                  <label className="block text-sm font-medium text-foreground">{t("contact.vaCount")}</label>
                   <select
                     name="vaCount"
                     className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gold/60"
                     defaultValue="1-2"
                   >
-                    <option value="1-2">1 - 2 VAs</option>
-                    <option value="3-5">3 - 5 VAs</option>
-                    <option value="6-10">6 - 10 VAs</option>
-                    <option value="10+">10+ VAs</option>
+                    {(
+                      t("contact.vaOptions", { returnObjects: true }) as string[]
+                    ).map((opt) => (
+                      <option key={opt} value={opt.split(" ")[0]}>{opt}</option>
+                    ))}
                   </select>
                 </div>
                 <div className="space-y-1.5">
-                  <label className="block text-sm font-medium text-foreground">Hours per week</label>
+                  <label className="block text-sm font-medium text-foreground">{t("contact.hours")}</label>
                   <select
                     name="hoursPerWeek"
                     className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gold/60"
                     defaultValue="20-40"
                   >
-                    <option value="10-20">10 - 20 hours</option>
-                    <option value="20-40">20 - 40 hours</option>
-                    <option value="40+">40+ hours</option>
+                    {(
+                      t("contact.hoursOptions", { returnObjects: true }) as string[]
+                    ).map((opt) => (
+                      <option key={opt} value={opt.split(" ")[0]}>{opt}</option>
+                    ))}
                   </select>
                 </div>
               </div>
 
               <div className="space-y-1.5">
-                <label className="block text-sm font-medium text-foreground">What do you need help with?</label>
+                <label className="block text-sm font-medium text-foreground">{t("contact.message")}</label>
                 <textarea
                   name="message"
                   rows={4}
                   className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gold/60"
-                  placeholder="Tell us about your tasks, goals, and timelines..."
+                  placeholder={t("contact.message_ph")}
                   required
                 />
               </div>
@@ -94,7 +99,7 @@ const Contact = () => {
                 type="submit"
                 className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-gold text-foreground font-semibold text-sm sm:text-base rounded-lg sm:rounded-xl hover:bg-gold/90 transition-all duration-300 hover:scale-105 shadow-lg"
               >
-                Submit Request
+                {t("contact.submit")}
               </button>
             </form>
           </div>

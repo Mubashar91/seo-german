@@ -1,0 +1,136 @@
+{
+  "nav": {
+    "services": "Services",
+    "howItWorks": "How It Works",
+    "pricing": "Pricing",
+    "testimonials": "Testimonials",
+    "faq": "FAQ",
+    "contactUs": "Contact Us",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "badge": "Trusted by 500+ Businesses Worldwide",
+    "title_part1": "Dominate Search Results",
+    "title_connector": "&",
+    "title_part2": "Drive Organic Traffic",
+    "description": "Complete SEO solutions: keyword research, on-page optimization, content strategy, and technical SEO — all designed to boost your rankings.",
+    "cta_full": "Book Free SEO Audit (15 min)",
+    "cta_short": "Book SEO Audit",
+    "cta_aria": "Book a free 15-minute SEO strategy call",
+    "urgency": "Free comprehensive SEO audit included",
+    "badgeTopRated": "Top Rated",
+    "stat_keywords": "Keywords Ranked",
+    "stat_traffic": "Avg Traffic Boost",
+    "stat_rankings": "Page Rankings"
+  },
+  "services": {
+    "badge": "Our SEO Services",
+    "title_html": "How We <span class=\"text-gold\">Boost</span> Your Rankings",
+    "subtitle": "Complete SEO solutions — from keyword research to technical optimization, we handle everything to get you ranking higher.",
+    "items": [
+      {"title": "Keyword Research & Strategy", "description": "Comprehensive keyword analysis, search intent mapping, competitor research, and strategic roadmaps to dominate your niche", "benefit": "Target high-value keywords"},
+      {"title": "Content Optimization", "description": "SEO-optimized content creation, blog writing, meta descriptions, and content audits designed to rank and convert", "benefit": "3–5x organic traffic"},
+      {"title": "Technical SEO", "description": "Site speed optimization, mobile responsiveness, schema markup, and technical audits to improve crawlability", "benefit": "Faster indexing & ranking"},
+      {"title": "SEO Analytics & Reporting", "description": "Monthly ranking reports, traffic analysis, conversion tracking, and data-driven recommendations for continuous growth", "benefit": "Track ranking progress"},
+      {"title": "Local SEO", "description": "Google My Business optimization, local citations, review management, and geo-targeted strategies for local dominance", "benefit": "Dominate local search"},
+      {"title": "Link Building", "description": "High-quality backlink acquisition, outreach campaigns, and authority building to boost your domain strength", "benefit": "Increase domain authority"}
+    ]
+  },
+  "pricing": {
+    "badge": "Transparent Pricing",
+    "title_html": "Simple, <span class=\"text-gold\">Results-Driven</span> Pricing",
+    "subtitle": "Choose the SEO package that fits your business goals. Scale up anytime. No hidden fees.",
+    "perMonth": "/mo",
+    "setupFee": "+ €{{fee}} setup fee",
+    "noSetupFee": "No setup fee",
+    "cta": "Get Started"
+  },
+  "testimonials": {
+    "title_html": "Trusted by <span class=\"text-gold\">Brands That Rank</span>",
+    "subtitle": "Real SEO results from real businesses who partnered with us.",
+    "badge": "Success Story",
+    "case_title": "Case Study: <span class=\"text-gold\">450% Organic Traffic Growth in 6 Months</span>",
+    "case_desc": "See how an e-commerce store went from 2K to 11K monthly organic visitors and turned SEO into their #1 revenue channel.",
+    "case_cta": "View Full Case Study"
+  },
+  "blog": {
+    "badge": "Latest Insights",
+    "title_html": "Blog & <span class=\"text-gold\">Resources</span>",
+    "subtitle": "Expert insights, strategies, and guides to improve your search rankings and drive organic traffic growth.",
+    "read": "Read",
+    "by": "By"
+  },
+  "caseStudies": {
+    "badge": "Success Stories",
+    "title": "SEO Success Stories",
+    "subtitle": "See how businesses achieved top rankings, increased organic traffic, and boosted revenue with our proven SEO strategies.",
+    "readFull": "View Full Case Study",
+    "readShort": "View Study",
+    "bottomCtaText": "Ready to write your own success story?",
+    "bottomCtaPrimary": "Book Your Free Consultation →",
+    "bottomCtaSecondary": "Get Started →",
+    "statResult": "Result",
+    "statFocus": "SEO Focus",
+    "statTimeframe": "Timeframe"
+  },
+  "faq": {
+    "badge": "Got Questions?",
+    "title_html": "Frequently Asked <span class=\"text-gold\">Questions</span>",
+    "subtitle": "Everything you need to know about our SEO services. Can't find what you're looking for? Chat with us.",
+    "items": [
+      {"question": "How long does it take to see SEO results?", "answer": "SEO is a long-term strategy. You'll typically see initial improvements in 3–6 months, with significant results in 6–12 months. We provide monthly reports to track progress and adjust strategies."},
+      {"question": "Do you guarantee first page rankings?", "answer": "While we can't guarantee specific rankings (no ethical SEO agency can), we guarantee measurable improvements in organic traffic, keyword rankings, and visibility using proven techniques."},
+      {"question": "What's included in your SEO audit?", "answer": "Our audit covers technical SEO, on-page optimization, content analysis, keyword research, competitor analysis, backlink profile review, and site speed optimization."},
+      {"question": "Do you work with my existing content team?", "answer": "Absolutely! We collaborate with your team, providing SEO guidelines, keyword strategies, and content optimization. We can also create SEO-optimized content if needed."}
+    ],
+    "trust1_title": "White-Hat SEO",
+    "trust1_desc": "We use only ethical, Google-approved SEO techniques that protect your site long-term",
+    "trust2_title": "Complete SEO Suite",
+    "trust2_desc": "Technical SEO • Content • Keywords • Links • Local SEO • Analytics & more",
+    "stillQ_title": "Still have questions?",
+    "stillQ_desc": "Our team is here to help. Get in touch and we'll respond within 2 hours.",
+    "stillQ_contact": "Contact Support",
+    "stillQ_pricing": "View Pricing"
+  },
+  "finalCta": {
+    "badge": "Start Your SEO Journey Today",
+    "headline_top": "Ready to Rank",
+    "headline_bottom": "Higher?",
+    "subtitle": "Let's boost your search rankings in 30-90 days",
+    "benefits": [
+      "Free SEO audit",
+      "30-day money-back guarantee",
+      "Proven ranking strategies",
+      "24/7 support"
+    ],
+    "primary": "Book Free SEO Audit",
+    "secondary": "Quick WhatsApp Chat",
+    "stats": {
+      "clients": "Clients Ranked",
+      "boost": "Avg. Traffic Boost",
+      "satisfaction": "Satisfaction",
+      "firstResults": "First Results"
+    },
+    "trust": {
+      "consult": { "value": "15 min", "label": "Free consultation" },
+      "response": { "value": "2 hours", "label": "Avg. response time" },
+      "commitment": { "value": "No commitment", "label": "Zero pressure" }
+    },
+    "reassurance": "Join 500+ businesses that dominate search results with our proven SEO strategies"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "blurb": "Tell us about your business and the kind of virtual assistant support you need. We'll get back to you with a custom plan.",
+    "name": "Full Name",
+    "name_ph": "John Doe",
+    "email": "Email",
+    "email_ph": "you@example.com",
+    "vaCount": "How many VAs do you need?",
+    "vaOptions": ["1 - 2 VAs", "3 - 5 VAs", "6 - 10 VAs", "10+ VAs"],
+    "hours": "Hours per week",
+    "hoursOptions": ["10 - 20 hours", "20 - 40 hours", "40+ hours"],
+    "message": "What do you need help with?",
+    "message_ph": "Tell us about your tasks, goals, and timelines...",
+    "submit": "Submit Request"
+  }
+}

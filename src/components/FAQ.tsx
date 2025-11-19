@@ -6,35 +6,17 @@ import {
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
 import { HelpCircle, Shield, Zap } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const faqs = [
-  {
-    question: "How long does it take to see SEO results?",
-    answer: "SEO is a long-term strategy. You'll typically see initial improvements in 3-6 months, with significant results in 6-12 months. We provide monthly reports to track progress and adjust strategies based on performance data."
-  },
-  {
-    question: "Do you guarantee first page rankings?",
-    answer: "While we can't guarantee specific rankings (no ethical SEO agency can), we guarantee measurable improvements in organic traffic, keyword rankings, and search visibility using proven white-hat techniques."
-  },
-  {
-    question: "What's included in your SEO audit?",
-    answer: "Our comprehensive audit covers technical SEO, on-page optimization, content analysis, keyword research, competitor analysis, backlink profile review, and site speed optimization. You'll receive a detailed report with actionable recommendations."
-  },
-  {
-    question: "Do you work with my existing content team?",
-    answer: "Absolutely! We collaborate with your in-house team, providing SEO guidelines, keyword strategies, and content optimization recommendations. We can also create SEO-optimized content if needed."
-  },
-  {
-    question: "How do you measure SEO success?",
-    answer: "We track organic traffic growth, keyword rankings, click-through rates, conversion rates, domain authority, and revenue from organic search. Monthly reports show progress toward your specific business goals."
-  },
-  {
-    question: "Can you help with local SEO?",
-    answer: "Yes! We specialize in local SEO including Google My Business optimization, local citation building, review management, and location-based keyword targeting to help you dominate local search results."
-  }
-];
+const useFaqItems = () => {
+  const { t } = useTranslation();
+  const raw = t("faq.items", { returnObjects: true }) as unknown;
+  return Array.isArray(raw) ? (raw as Array<{ question: string; answer: string }>) : [];
+};
 
 export const FAQ = () => {
+  const { t } = useTranslation();
+  const faqs = useFaqItems();
   return (
     <motion.section 
       id="faq"
@@ -67,17 +49,15 @@ export const FAQ = () => {
             >
               <div className="px-4 py-2 bg-gold/10 backdrop-blur-sm rounded-full text-sm font-semibold text-gold flex items-center gap-2 border border-gold/20">
                 <HelpCircle className="w-4 h-4" />
-                <span>Got Questions?</span>
+                <span>{t("faq.badge")}</span>
               </div>
             </motion.div>
 
             {/* Heading - Centered */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-5 md:mb-6 text-foreground px-2" style={{ textAlign: 'center' }}>
-              Frequently Asked <span className="text-gold">Questions</span>
-            </h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-5 md:mb-6 text-foreground px-2" style={{ textAlign: 'center' }} dangerouslySetInnerHTML={{ __html: t("faq.title_html") }} />
             {/* Description - Centered */}
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed px-2 text-center mx-auto">
-              Everything you need to know about our SEO services. Can't find what you're looking for? Chat with us.
+              {t("faq.subtitle")}
             </p>
           </motion.div>
 
@@ -132,10 +112,10 @@ export const FAQ = () => {
                 </div>
                 <div>
                   <h3 className="text-base sm:text-lg font-bold text-foreground mb-1.5">
-                    White-Hat SEO
+                    {t("faq.trust1_title")}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    We use only ethical, Google-approved SEO techniques that protect your site long-term
+                    {t("faq.trust1_desc")}
                   </p>
                 </div>
               </div>
@@ -148,10 +128,10 @@ export const FAQ = () => {
                 </div>
                 <div>
                   <h3 className="text-base sm:text-lg font-bold text-foreground mb-1.5">
-                    Complete SEO Suite
+                    {t("faq.trust2_title")}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Technical SEO • Content • Keywords • Links • Local SEO • Analytics & more
+                    {t("faq.trust2_desc")}
                   </p>
                 </div>
               </div>
@@ -167,23 +147,23 @@ export const FAQ = () => {
             transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
           >
             <p className="text-base sm:text-lg md:text-xl font-semibold text-foreground mb-2">
-              Still have questions?
+              {t("faq.stillQ_title")}
             </p>
             <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-5">
-              Our team is here to help. Get in touch and we'll respond within 2 hours.
+              {t("faq.stillQ_desc")}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a 
                 href="#contact" 
                 className="inline-flex items-center justify-center px-6 py-3 bg-gold text-foreground font-semibold rounded-xl hover:bg-gold/90 transition-all duration-300 hover:scale-105"
               >
-                Contact Support
+                {t("faq.stillQ_contact")}
               </a>
               <a 
                 href="#pricing" 
                 className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-border text-foreground font-semibold rounded-xl hover:border-gold hover:bg-gold/5 transition-all duration-300"
               >
-                View Pricing
+                {t("faq.stillQ_pricing")}
               </a>
             </div>
           </motion.div>

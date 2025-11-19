@@ -1,0 +1,136 @@
+{
+  "nav": {
+    "services": "Dienstleistungen",
+    "howItWorks": "So funktioniert's",
+    "pricing": "Preise",
+    "testimonials": "Referenzen",
+    "faq": "FAQ",
+    "contactUs": "Kontakt",
+    "getStarted": "Jetzt starten"
+  },
+  "hero": {
+    "badge": "Vertraut von über 500 Unternehmen weltweit",
+    "title_part1": "Suchergebnisse dominieren",
+    "title_connector": "&",
+    "title_part2": "Organischen Traffic steigern",
+    "description": "Komplette SEO-Lösungen: Keyword-Recherche, Onpage-Optimierung, Content-Strategie und technisches SEO – alles, um Ihre Rankings zu verbessern.",
+    "cta_full": "Kostenloses SEO-Audit buchen (15 Min)",
+    "cta_short": "SEO-Audit buchen",
+    "cta_aria": "Kostenlosen 15-minütigen SEO-Strategieanruf buchen",
+    "urgency": "Umfassendes kostenloses SEO-Audit inklusive",
+    "badgeTopRated": "Bestbewertet",
+    "stat_keywords": "Gerankte Keywords",
+    "stat_traffic": "Ø Traffic-Steigerung",
+    "stat_rankings": "Seiten-Rankings"
+  },
+  "services": {
+    "badge": "Unsere SEO-Dienstleistungen",
+    "title_html": "Wie wir Ihre Rankings <span class=\"text-gold\">boosten</span>",
+    "subtitle": "Komplette SEO-Lösungen – von Keyword-Recherche bis zur technischen Optimierung: wir übernehmen alles, damit Sie höher ranken.",
+    "items": [
+      {"title": "Keyword-Recherche & Strategie", "description": "Umfassende Keyword-Analyse, Suchintention, Wettbewerbsrecherche und strategische Roadmaps für Ihre Nische", "benefit": "Hochwertige Keywords anvisieren"},
+      {"title": "Content-Optimierung", "description": "SEO-optimierte Inhalte, Blogartikel, Meta-Beschreibungen und Content-Audits, die ranken und konvertieren", "benefit": "3–5x organischer Traffic"},
+      {"title": "Technisches SEO", "description": "Pagespeed-Optimierung, mobile Responsiveness, Schema Markup und technische Audits zur besseren Crawlability", "benefit": "Schnellere Indexierung & Rankings"},
+      {"title": "SEO-Analytics & Reporting", "description": "Monatliche Ranking-Reports, Traffic-Analysen, Conversion-Tracking und datenbasierte Empfehlungen für Wachstum", "benefit": "Ranking-Fortschritt verfolgen"},
+      {"title": "Lokales SEO", "description": "Google-My-Business-Optimierung, lokale Zitate, Bewertungsmanagement und Geo-Strategien für lokale Dominanz", "benefit": "Lokale Suche dominieren"},
+      {"title": "Linkaufbau", "description": "Hochwertige Backlinks, Outreach-Kampagnen und Autoritätsaufbau zur Stärkung Ihrer Domain", "benefit": "Domain-Autorität erhöhen"}
+    ]
+  },
+  "pricing": {
+    "badge": "Transparente Preise",
+    "title_html": "Einfache, <span class=\"text-gold\">ergebnisorientierte</span> Preise",
+    "subtitle": "Wählen Sie das SEO-Paket, das zu Ihren Zielen passt. Jederzeit skalieren. Keine versteckten Gebühren.",
+    "perMonth": "/Monat",
+    "setupFee": "+ {{fee}} € Einrichtungsgebühr",
+    "noSetupFee": "Keine Einrichtungsgebühr",
+    "cta": "Jetzt starten"
+  },
+  "testimonials": {
+    "title_html": "Vertrauen von <span class=\"text-gold\">stark rankenden Marken</span>",
+    "subtitle": "Echte SEO-Ergebnisse von Unternehmen, die mit uns gearbeitet haben.",
+    "badge": "Erfolgsgeschichte",
+    "case_title": "Fallstudie: <span class=\"text-gold\">450% organisches Wachstum in 6 Monaten</span>",
+    "case_desc": "Wie ein E-Commerce-Store von 2K auf 11K monatliche Besucher stieg und SEO zum #1-Kanal machte.",
+    "case_cta": "Komplette Fallstudie ansehen"
+  },
+  "blog": {
+    "badge": "Neueste Einblicke",
+    "title_html": "Blog & <span class=\"text-gold\">Ressourcen</span>",
+    "subtitle": "Expertenwissen, Strategien und Guides für bessere Rankings und organisches Wachstum.",
+    "read": "Lesen",
+    "by": "Von"
+  },
+  "caseStudies": {
+    "badge": "Erfolgsgeschichten",
+    "title": "SEO-Erfolgsgeschichten",
+    "subtitle": "So erreichen Unternehmen Top-Rankings, mehr organischen Traffic und mehr Umsatz mit unserer SEO.",
+    "readFull": "Komplette Fallstudie ansehen",
+    "readShort": "Studie ansehen",
+    "bottomCtaText": "Bereit für Ihre eigene Erfolgsgeschichte?",
+    "bottomCtaPrimary": "Kostenlose Beratung buchen →",
+    "bottomCtaSecondary": "Jetzt starten →",
+    "statResult": "Ergebnis",
+    "statFocus": "SEO-Schwerpunkt",
+    "statTimeframe": "Zeitrahmen"
+  },
+  "faq": {
+    "badge": "Fragen?",
+    "title_html": "Häufig gestellte <span class=\"text-gold\">Fragen</span>",
+    "subtitle": "Alles, was Sie über unsere SEO-Dienstleistungen wissen müssen. Nicht fündig geworden? Schreiben Sie uns.",
+    "items": [
+      {"question": "Wie lange dauert es, bis SEO-Ergebnisse sichtbar sind?", "answer": "SEO ist langfristig. Erste Verbesserungen in 3–6 Monaten, deutliche Ergebnisse in 6–12 Monaten. Wir berichten monatlich und optimieren laufend."},
+      {"question": "Garantieren Sie Platz 1?", "answer": "Konkrete Rankings sind nicht garantierbar. Wir garantieren messbare Verbesserungen bei organischem Traffic, Rankings und Sichtbarkeit mit bewährten Methoden."},
+      {"question": "Was beinhaltet Ihr SEO-Audit?", "answer": "Technisches SEO, Onpage, Content-Analyse, Keyword-Recherche, Wettbewerber, Backlink-Profil, Pagespeed. Mit detailliertem Maßnahmenplan."},
+      {"question": "Arbeiten Sie mit meinem Content-Team?", "answer": "Ja! Wir liefern SEO-Guidelines, Keyword-Strategien und Optimierung. Auf Wunsch erstellen wir auch Inhalte."}
+    ],
+    "trust1_title": "White-Hat-SEO",
+    "trust1_desc": "Nur ethische, Google-konforme SEO-Methoden – nachhaltig sicher",
+    "trust2_title": "Komplette SEO-Suite",
+    "trust2_desc": "Technik • Content • Keywords • Links • Local • Analytics & mehr",
+    "stillQ_title": "Noch Fragen?",
+    "stillQ_desc": "Unser Team hilft gern. Wir melden uns innerhalb von 2 Stunden.",
+    "stillQ_contact": "Support kontaktieren",
+    "stillQ_pricing": "Preise ansehen"
+  },
+  "finalCta": {
+    "badge": "Starten Sie jetzt mit SEO",
+    "headline_top": "Bereit für bessere",
+    "headline_bottom": "Rankings?",
+    "subtitle": "Lassen Sie uns Ihre Rankings in 30–90 Tagen steigern",
+    "benefits": [
+      "Kostenloses SEO-Audit",
+      "30 Tage Geld-zurück-Garantie",
+      "Bewährte Ranking-Strategien",
+      "24/7 Support"
+    ],
+    "primary": "Kostenloses SEO-Audit buchen",
+    "secondary": "Schneller WhatsApp-Chat",
+    "stats": {
+      "clients": "Kunden gerankt",
+      "boost": "Ø Traffic-Steigerung",
+      "satisfaction": "Zufriedenheit",
+      "firstResults": "Erste Ergebnisse"
+    },
+    "trust": {
+      "consult": { "value": "15 Min", "label": "Kostenlose Beratung" },
+      "response": { "value": "2 Std.", "label": "Ø Antwortzeit" },
+      "commitment": { "value": "Keine Bindung", "label": "Kein Druck" }
+    },
+    "reassurance": "Über 500 Unternehmen dominieren mit uns die Suchergebnisse"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "blurb": "Erzählen Sie uns von Ihrem Unternehmen und welcher Support nötig ist. Wir melden uns mit einem individuellen Plan.",
+    "name": "Vollständiger Name",
+    "name_ph": "Max Mustermann",
+    "email": "E-Mail",
+    "email_ph": "sie@beispiel.de",
+    "vaCount": "Wie viele VAs benötigen Sie?",
+    "vaOptions": ["1 - 2 VAs", "3 - 5 VAs", "6 - 10 VAs", "10+ VAs"],
+    "hours": "Stunden pro Woche",
+    "hoursOptions": ["10 - 20 Stunden", "20 - 40 Stunden", "40+ Stunden"],
+    "message": "Wobei benötigen Sie Hilfe?",
+    "message_ph": "Aufgaben, Ziele und Zeitplan ...",
+    "submit": "Anfrage senden"
+  }
+}

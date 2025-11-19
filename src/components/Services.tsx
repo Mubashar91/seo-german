@@ -1,49 +1,22 @@
 import { Search, FileText, Settings, BarChart3, Target, Link, TrendingUp } from "lucide-react";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
-const services = [
-  {
-    icon: Search,
-    title: "Keyword Research & Strategy",
-    description: "Comprehensive keyword analysis, search intent mapping, competitor research, and strategic roadmaps to dominate your niche",
-    benefit: "Target high-value keywords"
-  },
-  {
-    icon: FileText,
-    title: "Content Optimization",
-    description: "SEO-optimized content creation, blog writing, meta descriptions, and content audits designed to rank and convert",
-    benefit: "3–5x organic traffic"
-  },
-  {
-    icon: Settings,
-    title: "Technical SEO",
-    description: "Site speed optimization, mobile responsiveness, schema markup, and technical audits to improve crawlability",
-    benefit: "Faster indexing & ranking"
-  },
-  {
-    icon: BarChart3,
-    title: "SEO Analytics & Reporting",
-    description: "Monthly ranking reports, traffic analysis, conversion tracking, and data-driven recommendations for continuous growth",
-    benefit: "Track ranking progress"
-  },
-  {
-    icon: Target,
-    title: "Local SEO",
-    description: "Google My Business optimization, local citations, review management, and geo-targeted strategies for local dominance",
-    benefit: "Dominate local search"
-  },
-  {
-    icon: Link,
-    title: "Link Building",
-    description: "High-quality backlink acquisition, outreach campaigns, and authority building to boost your domain strength",
-    benefit: "Increase domain authority"
-  }
-];
+const serviceIcons = [Search, FileText, Settings, BarChart3, Target, Link];
 
 export const Services = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const { t } = useTranslation();
+
+  // Read translated items (array of objects) and attach icons in order
+  const itemsRaw = t("services.items", { returnObjects: true }) as unknown;
+  const itemsArr = Array.isArray(itemsRaw) ? itemsRaw as Array<{ title: string; description: string; benefit: string }> : [];
+  const items = itemsArr.map((it, idx) => ({
+    ...it,
+    icon: serviceIcons[idx] ?? Search,
+  }));
 
   return (
     <motion.section 
@@ -71,18 +44,16 @@ export const Services = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 bg-gradient-to-br from-[hsl(var(--gold))] via-[hsl(var(--brand-blue))] to-[hsl(var(--gold))] text-foreground text-xs sm:text-sm md:text-base font-semibold rounded-full mb-3 sm:mb-4">
-            Our SEO Services
+            {t("services.badge")}
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-5 px-2">
-            How We <span className="text-gold">Boost</span> Your Rankings
-          </h2>
+          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-5 px-2" dangerouslySetInnerHTML={{ __html: t("services.title_html") }} />
           <p className="text-base sm:text-lg md:text-lg lg:text-xl text-muted-foreground max-w-3xl leading-relaxed px-2">
-            Complete SEO solutions — from keyword research to technical optimization, we handle everything to get you ranking higher.
+            {t("services.subtitle")}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-7 lg:gap-8 max-w-7xl mx-auto relative z-10">
-          {services.map((service, index) => (
+          {items.map((service, index) => (
             <motion.div 
               key={index}
               className="relative bg-card/50 backdrop-blur-sm border-2 border-brand/30 p-5 sm:p-6 md:p-7 lg:p-9 xl:p-10 rounded-xl sm:rounded-2xl hover:bg-card hover:border-brand hover:shadow-[0_25px_80px_-20px_hsl(var(--brand-blue)/0.4)] transition-all duration-700 group overflow-hidden"

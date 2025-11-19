@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const tools = [
   { name: "Instagram", category: "Platform" },
@@ -24,6 +25,19 @@ const tools = [
 const categories = ["Platform", "Design", "Video Editing", "Scheduling", "Analytics"];
 
 export const ToolsIntegration = () => {
+  const { i18n } = useTranslation();
+  const isDe = i18n.language && i18n.language.startsWith("de");
+  const catLabel = (c: string) => {
+    if (!isDe) return c;
+    switch (c) {
+      case "Platform": return "Plattform";
+      case "Design": return "Design";
+      case "Video Editing": return "Videoschnitt";
+      case "Scheduling": return "Planung";
+      case "Analytics": return "Analytik";
+      default: return c;
+    }
+  };
   return (
     <motion.section 
       className="relative py-8 sm:py-10 md:py-12 lg:py-14 bg-gradient-to-b from-background via-muted/30 to-background z-60"
@@ -41,10 +55,16 @@ export const ToolsIntegration = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 px-2">
-            We Work With <span className="text-gold">All Major Platforms</span>
+            {isDe ? (
+              <>Wir arbeiten mit <span className="text-gold">allen großen Plattformen</span></>
+            ) : (
+              <>We Work With <span className="text-gold">All Major Platforms</span></>
+            )}
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl px-2">
-            From content creation to analytics—we're fluent in the tools that power modern social media.
+            {isDe
+              ? "Von Content‑Erstellung bis Analytik – wir beherrschen die Tools, die modernes Social Media antreiben."
+              : "From content creation to analytics—we're fluent in the tools that power modern social media."}
           </p>
         </motion.div>
 
@@ -69,7 +89,7 @@ export const ToolsIntegration = () => {
                   {tool.name}
                 </p>
                 <p className="text-[10px] sm:text-xs text-muted-foreground mt-1">
-                  {tool.category}
+                  {catLabel(tool.category)}
                 </p>
               </motion.div>
             ))}
@@ -83,10 +103,20 @@ export const ToolsIntegration = () => {
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           >
             <p className="text-base sm:text-lg text-foreground mb-3 sm:mb-4">
-              <span className="font-bold text-gold">Using a different platform or tool?</span> We adapt. 
+              {isDe ? (
+                <>
+                  <span className="font-bold text-gold">Sie nutzen eine andere Plattform oder ein anderes Tool?</span> Wir passen uns an.
+                </>
+              ) : (
+                <>
+                  <span className="font-bold text-gold">Using a different platform or tool?</span> We adapt.
+                </>
+              )}
             </p>
             <p className="text-sm sm:text-base text-muted-foreground">
-              Our team stays current with emerging platforms and tools. If it's part of your stack, we'll master it.
+              {isDe
+                ? "Unser Team bleibt bei neuen Plattformen und Tools up‑to‑date. Wenn es Teil Ihres Stacks ist, beherrschen wir es."
+                : "Our team stays current with emerging platforms and tools. If it's part of your stack, we'll master it."}
             </p>
           </motion.div>
         </div>
